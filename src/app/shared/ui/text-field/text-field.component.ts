@@ -8,12 +8,11 @@ import { ControlValueAccessor, NgControl } from '@angular/forms';
     standalone: false
 })
 export class TextFieldComponent implements ControlValueAccessor {
+    
     constructor(@Optional() @Self() public ngControl: NgControl) {
-        // Let Angular know this component implements CVA for the containing control
         if (this.ngControl) this.ngControl.valueAccessor = this;
     }
-
-    // UI inputs
+ 
     @Input() label = '';
     @Input() placeholder = '';
     @Input() hint = '';
@@ -21,10 +20,9 @@ export class TextFieldComponent implements ControlValueAccessor {
     @Input() id = `tf-${Math.random().toString(36).slice(2)}`;
     @Input() autoComplete: 'on' | 'off' | string = 'off';
     @Input() disabled = false;
-    @Input() required = false;                 // purely visual asterisk
-    @Input() showValidation = true;            // toggle error rendering
-
-    // CVA state
+    @Input() required = false;               
+    @Input() showValidation = true;            
+ 
     value: string | number | null = null;
     private onChange: (v: any) => void = () => { };
     private onTouched: () => void = () => { };

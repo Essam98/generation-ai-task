@@ -4,25 +4,35 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ButtonModule } from 'primeng/button';
 import { TextFieldComponent } from './ui/text-field/text-field.component';
 import { InputTextModule } from 'primeng/inputtext';
+import { HeaderComponent } from './components/header/header.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { MenubarModule } from 'primeng/menubar';
+import { PanelMenuModule } from 'primeng/panelmenu';
 
-const shared = [ 
+const shared = [
     FormsModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     ButtonModule,
     CommonModule,
-    InputTextModule
+    InputTextModule,
+    MenubarModule,
+    PanelMenuModule
 ]
 
 
 @NgModule({
     declarations: [
-        TextFieldComponent
+        TextFieldComponent,
+        HeaderComponent,
+        SideBarComponent,
     ],
     exports: [
         TextFieldComponent,
+        HeaderComponent,
+        SideBarComponent, 
         ...shared
     ],
-    imports: [    
+    imports: [
         ...shared
     ]
 })

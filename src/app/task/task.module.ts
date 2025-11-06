@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { TaskRoutingModule } from './task-routing.module';
-import { MainComponent } from './main/main.component';
 import { SharedModule } from '../shared/shared.module';
-import { TextFieldComponent } from '../shared/ui/text-field/text-field.component';
-
-
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserAddComponent } from './user-add/user-add.component';
+ 
 @NgModule({
     declarations: [
-        MainComponent,  
+        DashboardComponent,
+        UserAddComponent
     ],
     imports: [
         CommonModule,
         TaskRoutingModule,
-        SharedModule
+        SharedModule 
     ]
 })
 export class TaskModule { }

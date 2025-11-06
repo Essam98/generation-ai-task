@@ -1,0 +1,12 @@
+
+
+    .app-sidebar {
+      width: 260px;
+      height: 100dvh;
+      position: sticky;
+      top: 0;
+      overflow: auto;
+      padding: 0.5rem;
+      background: var(--surface-card);
+      border-right: 1px solid var(--surface-border);
+    }

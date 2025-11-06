@@ -4,6 +4,6 @@ export const routes: Routes = [
     {
         path: '',
         loadChildren: () => import('./task/task.module').then(m => m.TaskModule),
-        data: { title: "Generation AI | Task" }, 
-    }
+        data: { title: "Generation AI | Dashboard" },
+    }, 
 ];
