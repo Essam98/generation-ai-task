@@ -54,43 +54,29 @@
 }
 
 .menu-list-item {
-    color: var(--primary-color);
-    max-height: 275px;
+    color: var(--primary-color); 
     transition: all 0.3s ease;
     overflow: hidden;
     text-decoration: none;
     display: flex;
-    border-radius: 12px;
-    margin: 5px;
-    padding: 16px 24px;
+    border-radius: 12px; 
     align-items: center;
-    width: 95%;
+    width: 100%;
     cursor: pointer;
     position: relative; 
     display: flex;
     align-items: baseline;
-    gap: 10px;
-
-    // Hover effects
-    &:hover:not(.activeTab) { 
-        transform: translateX(4px);
-
-        .mat-icon {
-            transform: scale(1.1);
-        }
-
-        .menu-item-text {
-            transform: translateX(2px);
-        }
+    margin-bottom: 15px;
+    
+    &:hover:not(.activeTab) {  
+        transform: scale(1.1);  
     }
-
-    // Active state
+ 
     &.active {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
-
-    // Active tab override for hover 
+ 
     &.activeTab:hover {
         transform: translateX(2px);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);

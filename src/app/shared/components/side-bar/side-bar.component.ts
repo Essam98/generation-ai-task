@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { map, Subject, takeUntil } from 'rxjs';
+import { Component, EventEmitter, Input, Output } from '@angular/core'; 
 
 @Component({
     selector: 'app-side-bar',
@@ -8,7 +6,11 @@ import { map, Subject, takeUntil } from 'rxjs';
     styleUrl: './side-bar.component.scss',
     standalone: false
 })
-export class SideBarComponent {
+export class SideBarComponent { 
+ 
+    @Output() buttonToggeled = new EventEmitter<any>(); 
+    isLargeMode: boolean = true
+ 
     items = [
         {
             label: "Dashboard",
@@ -34,5 +36,10 @@ export class SideBarComponent {
             ]
         },
     ];
+
+    toggleSidNavView = () => {
+        this.isLargeMode = !this.isLargeMode
+        this.buttonToggeled.emit();
+    }
 }
  

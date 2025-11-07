@@ -1,7 +1,16 @@
 .app-sidebar {
     background: var(--side-nav-background);
-    min-height: 100vh;
-    position: fixed;
+    min-height: 100vh; 
+    transition: all ease-in-out .3s;
+    width: 100%;
+    // &.with-hover-mode { 
+    //     width: 45px;
+        
+    // }
+     
+    // &.no-hover-mode { 
+    // }
+
     .logo {
         text-align: center;
         padding: 30px 0;
@@ -13,26 +22,27 @@
         text-align: center;
         background-color: var(--page-background);
         color: var(--text-white-color-secondary);
-        margin-bottom: 30px;
+        margin-bottom: 30px; 
+        cursor: pointer;
     }
 }
 
 
 
- 
+
 :host {
-    --bg: #10141A; 
-    --accent: #00C5D6; 
-    --muted: #646271; 
-    --box-1: #474957; 
-    --box-2: #595968; 
-    --divider: #1b2230; 
+    --bg: #10141A;
+    --accent: #00C5D6;
+    --muted: #646271;
+    --box-1: #474957;
+    --box-2: #595968;
+    --divider: #1b2230;
 }
- 
+
 .sidebar {
     background: var(--bg);
     padding: 1rem 1.25rem;
-    width: 100%; 
+    width: 100%;
     box-sizing: border-box;
     color: #e5e7eb;
     font-family: Inter, system-ui, Arial, sans-serif;
@@ -43,12 +53,12 @@
     align-items: center;
     gap: 1rem;
     padding: .5rem .25rem;
-    height: 4.25rem; 
+    height: 4.25rem;
     position: relative;
     text-decoration: none;
     border-radius: .75rem;
 }
- 
+
 .icon-box {
     width: 52px;
     height: 52px;
@@ -61,20 +71,20 @@
 .icon-box i {
     font-size: 1.45rem;
 }
- 
+
 .icon-box.active {
     background: var(--accent);
-    color: #062a2e; 
+    color: #062a2e;
 }
- 
+
 .icon-box.muted {
     background: linear-gradient(180deg, var(--box-1), var(--box-2));
     color: #aeb2c0;
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .15);
 }
- 
+
 .label {
-    font-size: 1.25rem; 
+    font-size: 1.25rem;
     font-weight: 500;
     letter-spacing: .2px;
 }

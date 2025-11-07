@@ -1,46 +1,18 @@
-<aside class="app-sidebar">
-    <div class="logo">
-        <img src="images/logo/IdealSolutions-HorizontalLockup-EN-White.png" alt="">
-    </div>
-
-    <div class="toggle-bar">
+ 
+<aside class="app-sidebar" >
+    <div class="logo">  
+        <img [src]="'images/logo/' + (isLargeMode ? 'IdealSolutions-HorizontalLockup-EN-White.png' : 'IdealSolutions-VerticalLockup-EN-White.png')" alt="">
+    </div> 
+    <div class="toggle-bar" (click)="toggleSidNavView()" >
         <i class="pi pi-bars"></i>
-    </div>
+    </div>  
 
-
-    <app-sidenav-items *ngFor="let item of items" [item]="item"></app-sidenav-items>
-
-    <!-- <nav class="sidebar"> 
-        <a class="item active" href="#">
-            <span class="icon-box active">
-                <i class="pi pi-compass"></i>
-            </span>
-            <span class="label active">Dashboard</span>
-        </a>
- 
-        <a class="item" href="#">
-            <span class="icon-box muted">
-                <i class="pi pi-file"></i>
-            </span>
-            <span class="label muted">Report</span>
-        </a>
- 
-        <div class="item">
-            <span class="icon-box muted">
-                <i class="pi pi-cog"></i>
-            </span>
-            <span class="label muted">Organization</span>
-            <i class="pi pi-chevron-up chevron"></i>
+    @if (isLargeMode) {  
+        <app-sidenav-items  *ngFor="let item of items" [item]="item"></app-sidenav-items>    
+    } @else {  
+        <div style="display: flex; flex-direction: column; align-items: center;  height: 100%; position: relative; top: 200px;"> 
+            <app-sidenav-item-icon-mode  *ngFor="let item of items" [item]="item"></app-sidenav-item-icon-mode>   
         </div>
- 
-        <div class="item">
-            <span class="icon-box muted">
-                <i class="pi pi-users"></i>
-            </span>
-            <span class="label muted">Users</span>
-
-            <button pButton type="button" class="plus-btn" icon="pi pi-plus" aria-label="Add user">
-            </button>
-        </div>
-    </nav> -->
-</aside>
+    } 
+    
+</aside> 

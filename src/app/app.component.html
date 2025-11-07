@@ -1,9 +1,11 @@
-<div class="layout"> 
+  
+<div class="shell" [style.gridTemplateColumns]="columns()">
     <app-header *ngIf="isMobile"></app-header>
- 
-    <app-side-bar *ngIf="!isMobile"></app-side-bar>
- 
-    <main class="content" [class.content--with-sidebar]="!isMobile">
+    <aside class="sidebar">  
+        <app-side-bar (buttonToggeled)="toggle()" *ngIf="!isMobile"></app-side-bar>
+    </aside>
+
+    <section class="content"> 
         <router-outlet />
-    </main>
-</div> 
+    </section>
+</div>

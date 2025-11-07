@@ -5,10 +5,11 @@ import { Router } from '@angular/router';
 import { NavItem } from '../../../../../public/interfaces/nav';
 import { NavService } from '../../../../../public/services/nav.service';
 
+
 @Component({
-    selector: 'app-sidenav-items',
-    templateUrl: './sidenav-items.component.html',
-    styleUrls: ['./sidenav-items.component.scss'],
+    selector: 'app-sidenav-item-icon-mode',
+    templateUrl: './sidenav-item-icon-mode.component.html',
+    styleUrl: './sidenav-item-icon-mode.component.scss',
     standalone: false,
     animations: [
         trigger('indicatorRotate', [
@@ -20,13 +21,13 @@ import { NavService } from '../../../../../public/services/nav.service';
         ])
     ],
 })
-export class SidenavItemsComponent implements OnInit {
-
+export class SidenavItemIconModeComponent implements OnInit {
+ 
     expanded: boolean = false;
 
     @HostBinding('attr.aria-expanded') ariaExpanded = this.expanded;
     @Input('item') item!: NavItem;
-    @Input('depth') depth!: number; 
+    @Input('depth') depth!: number;
 
     activeTab: string;
     isActiveTab: boolean;
