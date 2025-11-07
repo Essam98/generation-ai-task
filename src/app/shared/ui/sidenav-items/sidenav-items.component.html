@@ -1,0 +1,21 @@
+<a mat-list-item [ngStyle]="{'padding-left': (depth * 15) + 'px' }" (click)="onItemSelected(item)" matRipple
+    [routerLink]="item.route"   class="menu-list-item" [class.active]="isActive(item.route)">
+
+    <div class="image-container"  [class.active]="isActive(item.route)" >
+        <img [src]="item.icon" alt="">
+    </div>
+
+    <span class="menu-item-text ellipsis "  [class.active]="isActive(item.route)"> {{ item.label }} </span>
+    <span fxflex class="twistie-separator"></span>
+
+    <span *ngIf="item.children && item.children.length"> 
+        <img src="images\icons\arrow.png" [@indicatorRotate]="navService.activeTab == item.label ? 'expanded': 'collapsed'" alt="">
+    </span>
+</a>
+
+
+<!-- Children -->
+<div class="children" [class.active]="navService.activeTab == item.label ">
+    <app-sidenav-items *ngFor="let child of item.children" [item]="child" [depth]="depth+1" [routerLink]="child?.route">
+    </app-sidenav-items>
+</div>

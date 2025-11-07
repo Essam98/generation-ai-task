@@ -1,0 +1,125 @@
+.twistie-separator {
+    flex: 1 1 0%;
+}
+
+.activeTab {
+    background-color: var(--primary-color) !important;
+
+    .mat-icon {
+        color: white;
+    }
+
+    .menu-item-text {
+        color: var(--text-white-color-secondary) !important;
+        &.active { 
+            color: var(--primary-color);
+        }
+
+    }
+
+}
+
+.mat-icon {
+    color: #FFFFFF;
+    transition: transform 0.2s ease;
+}
+
+.menu-item-text {
+    font-size: 16px !important;
+    padding-left: 3px;
+    color: #FFFFFF;
+    position: relative;
+    top: -5px;
+    transition: transform 0.2s ease;
+
+    &.active {
+        color: var(--orange);
+    }
+}
+
+.menu-twistie {
+    font-size: 10pt;
+    height: 12px;
+    width: 12px;
+}
+
+.mat-list-item {
+    border-radius: 0 !important;
+    overflow: hidden;
+
+    &.active { 
+        color: var(--orange) !important;
+    }
+}
+
+.menu-list-item {
+    color: var(--primary-color);
+    max-height: 275px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    border-radius: 12px;
+    margin: 5px;
+    padding: 16px 24px;
+    align-items: center;
+    width: 95%;
+    cursor: pointer;
+    position: relative;
+
+    // Hover effects
+    &:hover:not(.activeTab) {
+        background-color: rgba(255, 255, 255, 0.08);
+        transform: translateX(4px);
+
+        .mat-icon {
+            transform: scale(1.1);
+        }
+
+        .menu-item-text {
+            transform: translateX(2px);
+        }
+    }
+
+    // Active state
+    &.active {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0; 
+    }
+
+    // Active tab override for hover 
+    &.activeTab:hover {
+        transform: translateX(2px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.children {
+    max-height: 0 !important;
+    transition: max-height 0.4s ease-in-out !important;
+    overflow: hidden !important;
+
+    &.active {
+        max-height: 500px !important;
+        transition: max-height 0.9s ease-in-out !important;
+    }
+
+    // Nested hover effect
+    .menu-list-item {
+        &:hover:not(.activeTab) {
+            background-color: rgba(255, 255, 255, 0.06);
+            padding-left: 28px;
+        }
+    }
+}
+
+
+.image-container {
+    background-color: #252836;
+    padding: 4px 2px 0px 2px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px 0px #02001799; 
+    &.active { 
+        background-color: var(--primary-color);
+    }
+}

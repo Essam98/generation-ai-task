@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { MenubarModule } from 'primeng/menubar';
 import { PanelMenuModule } from 'primeng/panelmenu';
+import { SidenavItemsComponent } from './ui/sidenav-items/sidenav-items.component';
+import { RouterModule } from '@angular/router';
 
 const shared = [
     FormsModule,
@@ -16,7 +18,8 @@ const shared = [
     CommonModule,
     InputTextModule,
     MenubarModule,
-    PanelMenuModule
+    PanelMenuModule,
+    RouterModule
 ]
 
 
@@ -25,11 +28,13 @@ const shared = [
         TextFieldComponent,
         HeaderComponent,
         SideBarComponent,
+        SidenavItemsComponent
     ],
     exports: [
         TextFieldComponent,
         HeaderComponent,
         SideBarComponent, 
+        SidenavItemsComponent,
         ...shared
     ],
     imports: [

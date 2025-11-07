@@ -11,25 +11,28 @@ import { map, Subject, takeUntil } from 'rxjs';
 export class SideBarComponent {
     items = [
         {
-            label: 'Dashboard',
-            icon: 'pi pi-home',
-            routerLink: '/'
+            label: "Dashboard",
+            icon: "images/sidenav/dashboard-icon.png",
+            route: "",
         },
         {
-            label: 'Analytics',
-            icon: 'pi pi-chart-line',
-            items: [
-                { label: 'Sales', icon: 'pi pi-dollar' },
-                { label: 'Traffic', icon: 'pi pi-directions' },
-            ]
+            label: "Report",
+            icon: "images/sidenav/report-icon.png",
+            route: "saradiat/list",
         },
         {
-            label: 'Settings',
-            icon: 'pi pi-cog',
-            items: [
-                { label: 'Profile', icon: 'pi pi-user' },
-                { label: 'Security', icon: 'pi pi-shield' }
+            label: "Organization",
+            icon: "images/sidenav/organization-icon.png", 
+            route: "Organization",
+            children: [ 
+                {
+                    label: "Users",
+                    icon: "images/sidenav/user-icon.png",
+                    route: "haser/list",
+                }, 
+
             ]
-        }
+        },
     ];
 }
+ 

@@ -1,12 +1,131 @@
-
-
-    .app-sidebar {
-      width: 260px;
-      height: 100dvh;
-      position: sticky;
-      top: 0;
-      overflow: auto;
-      padding: 0.5rem;
-      background: var(--surface-card);
-      border-right: 1px solid var(--surface-border);
+.app-sidebar {
+    background: var(--side-nav-background);
+    min-height: 100vh;
+    position: fixed;
+    .logo {
+        text-align: center;
+        padding: 30px 0;
     }
+
+    .toggle-bar {
+        padding: 13px 0;
+        width: 100%;
+        text-align: center;
+        background-color: var(--page-background);
+        color: var(--text-white-color-secondary);
+        margin-bottom: 30px;
+    }
+}
+
+
+
+ 
+:host {
+    --bg: #10141A; 
+    --accent: #00C5D6; 
+    --muted: #646271; 
+    --box-1: #474957; 
+    --box-2: #595968; 
+    --divider: #1b2230; 
+}
+ 
+.sidebar {
+    background: var(--bg);
+    padding: 1rem 1.25rem;
+    width: 100%; 
+    box-sizing: border-box;
+    color: #e5e7eb;
+    font-family: Inter, system-ui, Arial, sans-serif;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .5rem .25rem;
+    height: 4.25rem; 
+    position: relative;
+    text-decoration: none;
+    border-radius: .75rem;
+}
+ 
+.icon-box {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+}
+
+.icon-box i {
+    font-size: 1.45rem;
+}
+ 
+.icon-box.active {
+    background: var(--accent);
+    color: #062a2e; 
+}
+ 
+.icon-box.muted {
+    background: linear-gradient(180deg, var(--box-1), var(--box-2));
+    color: #aeb2c0;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .15);
+}
+ 
+.label {
+    font-size: 1.25rem; 
+    font-weight: 500;
+    letter-spacing: .2px;
+}
+
+.label.active {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.label.muted {
+    color: var(--muted);
+}
+
+/* ====== RIGHT-SIDE CHEVRON ====== */
+.chevron {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 1.1rem;
+    transform: rotate(0deg);
+    /* up arrow as in screenshot */
+}
+
+/* ====== PLUS ACTION BUTTON ====== */
+:host ::ng-deep .plus-btn.p-button {
+    margin-left: auto;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--accent);
+    border: none;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, .15) inset,
+        0 6px 18px rgba(0, 197, 214, .25);
+}
+
+:host ::ng-deep .plus-btn .p-button-icon {
+    font-size: 1.35rem;
+    color: #ffffff;
+}
+
+:host ::ng-deep .plus-btn.p-button:hover {
+    filter: brightness(1.05);
+}
+
+:host ::ng-deep .plus-btn.p-button:focus-visible {
+    outline: 2px solid #9FE9EF;
+    /* matches highlight glow in image */
+    outline-offset: 2px;
+}
+
+/* Optional: hover effect on rows (VERY subtle) */
+.item:hover {
+    background: rgba(255, 255, 255, 0.01);
+}
