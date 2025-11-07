@@ -11,6 +11,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { SidenavItemsComponent } from './ui/sidenav-items/sidenav-items.component';
 import { RouterModule } from '@angular/router';
 import { SidenavItemIconModeComponent } from './ui/sidenav-item-icon-mode/sidenav-item-icon-mode.component';
+import { RefreshOnZoomDirective } from '../../../public/directives/refresh-on-zoom.directive';
 
 
 const shared = [
@@ -31,7 +32,8 @@ const shared = [
         HeaderComponent,
         SideBarComponent,
         SidenavItemsComponent,
-        SidenavItemIconModeComponent
+        SidenavItemIconModeComponent,
+        RefreshOnZoomDirective
     ],
     exports: [
         TextFieldComponent,
@@ -39,6 +41,7 @@ const shared = [
         SideBarComponent, 
         SidenavItemsComponent,
         SidenavItemIconModeComponent,
+        RefreshOnZoomDirective,
         ...shared
     ],
     imports: [

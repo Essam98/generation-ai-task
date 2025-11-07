@@ -42,11 +42,7 @@ export class SidenavItemIconModeComponent implements OnInit {
     async ngOnInit() {
         if (this.depth === undefined) {
             this.depth = 0;
-        }
-
-        setTimeout(() => {
-            console.log(this.isActiveTab);
-        }, 1000)
+        } 
     }
 
     getLastPath = async (ROUTER: string, LOCATION_PATH_NAME: string) => {

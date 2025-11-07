@@ -32,6 +32,7 @@
     position: relative;
     top: -5px;
     transition: transform 0.2s ease;
+    z-index: 3;
 
     &.active {
         color: var(--orange);
@@ -54,29 +55,37 @@
 }
 
 .menu-list-item {
-    color: var(--primary-color); 
+    color: var(--primary-color);
     transition: all 0.3s ease;
-    overflow: hidden;
     text-decoration: none;
     display: flex;
-    border-radius: 12px; 
+    flex-direction: column;
+    border-radius: 12px;
     align-items: center;
     width: 100%;
     cursor: pointer;
-    position: relative; 
+    position: relative;
     display: flex;
     align-items: baseline;
     margin-bottom: 15px;
-    
-    &:hover:not(.activeTab) {  
-        transform: scale(1.1);  
+    z-index: 1 !important;
+    align-items: center;
+
+    &:hover:not(.activeTab) {
+        transform: scale(1.1);
     }
- 
+
+    &:hover {
+        .asfasd {
+            visibility: visible;
+        }
+    }
+
     &.active {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
- 
+
     &.activeTab:hover {
         transform: translateX(2px);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -115,5 +124,138 @@
 
     &.active {
         background-color: var(--primary-color);
+    }
+}
+
+
+.asfasd {
+    visibility: hidden;
+    position: relative;
+    z-index: 123;
+
+    :host {
+        --bg: #10141A;
+        /* app background */
+        --panelTop: rgba(36, 44, 56, .58);
+        --panelBot: rgba(16, 20, 26, .78);
+        --stroke: red;
+        --accent: #00C5D6;
+        --mutedText: #8E8C99;
+        --mutedIcon: #9AA4B2;
+        --iconBoxTop: #474957;
+        --iconBoxBot: #595968;
+    }
+
+    /* demo stage so you can see it floating; remove in your app */
+    .demo-stage {
+        // background: var(--bg);
+    }
+
+    /* ===== Popover shell ===== */
+    .assets-popover {
+        width: 274px;
+        border-radius: 15px;
+        border-bottom-right-radius: 0;
+        background: linear-gradient(180deg, var(--page-background) 0%, var(--page-background) 100%);
+        border: 1px solid #464353;
+        backdrop-filter: blur(14px);
+        box-shadow:
+            0 12px 40px rgba(0, 0, 0, .55),
+            inset 0 1px 0 rgba(255, 255, 255, .05);
+        height: 70px;
+    }
+
+    /* ===== Header ===== */
+    .header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        padding: 15px;
+
+    }
+
+    .gear {
+        color: #fff;
+        z-index: 1;
+        filter: drop-shadow(0 2px 8px rgba(0, 197, 214, .35));
+    }
+
+    .title {
+        font-weight: 700;
+        letter-spacing: .2px;
+        z-index: 1;
+        color: #fff;
+    }
+
+    /* Cyan glow sweep on the left side of header */
+    .header-glow {
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 100%;
+        background:
+            radial-gradient(120px 100% at 36px 50%, rgba(0, 197, 214, .55), rgba(0, 197, 214, .12) 60%, transparent 70%),
+            linear-gradient(90deg, rgba(0, 197, 214, .18), transparent 45%);
+        pointer-events: none;
+        mix-blend-mode: screen;
+    }
+
+    .divider {
+        height: 1px;
+        background: var(--stroke);
+    }
+
+    /* ===== Body rows ===== */
+    .body {
+        position: relative;
+        width: 75%;
+        bottom: 0;
+        background-color: var(--page-background) !important;
+        left: 69px;
+        border-bottom-right-radius: 15px;
+        border: 1px solid #464353;
+        overflow: hidden;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background-color: var(--page-background);
+        padding: 10px 7px;
+    }
+
+    .label {
+        font-size: 1.05rem;
+        letter-spacing: .2px;
+        color: var(--text-white-color-secondary) !important;
+    }
+
+    .icon-box {
+        background-color: #252836 !important; 
+        min-width: 48px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;  
+        color: var(--text-white-color-secondary);
+        background-color: red;
+        padding: 4px 2px 0px 2px;
+        border-radius: 10px;    
+    }
+
+
+ 
+ 
+}
+
+.menu-list-item-label {
+    text-align: center;
+    font-size: 10px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    color: var(--text-white-color-secondary);
+
+    &.active {
+        color: var(--primary-color);
     }
 }

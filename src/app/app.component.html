@@ -1,5 +1,5 @@
   
-<div class="shell" [style.gridTemplateColumns]="columns()">
+<div appRefreshOnZoom  class="shell" [style.gridTemplateColumns]="columns()">
     <app-header *ngIf="isMobile"></app-header>
     <aside class="sidebar">  
         <app-side-bar (buttonToggeled)="toggle()" *ngIf="!isMobile"></app-side-bar>
@@ -9,3 +9,4 @@
         <router-outlet />
     </section>
 </div>
+ 

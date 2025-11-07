@@ -8,9 +8,9 @@
     </div>  
 
     @if (isLargeMode) {  
-        <app-sidenav-items  *ngFor="let item of items" [item]="item"></app-sidenav-items>    
+        <app-sidenav-items *ngFor="let item of items" [item]="item"></app-sidenav-items>    
     } @else {  
-        <div style="display: flex; flex-direction: column; align-items: center;  height: 100%; position: relative; top: 200px;"> 
+        <div style="display: flex; flex-direction: column; align-items: center;  height: 100%; position: relative; top: 100px;"> 
             <app-sidenav-item-icon-mode  *ngFor="let item of items" [item]="item"></app-sidenav-item-icon-mode>   
         </div>
     } 

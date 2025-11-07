@@ -1,4 +1,4 @@
-<a mat-list-item [ngStyle]="{'padding-left': (depth * 15) + 'px' }" (click)="onItemSelected(item)"  
+<a mat-list-item [ngStyle]="{'padding-left': (depth * 25) + 'px' }" (click)="onItemSelected(item)"  
     [routerLink]="item.route"   class="menu-list-item" [class.active]="isActive(item.route)">
 
     <div class="image-container"  [class.active]="isActive(item.route)" >
@@ -11,6 +11,12 @@
     <span *ngIf="item.children && item.children.length"> 
         <img src="images\icons\arrow.png" [@indicatorRotate]="navService.activeTab == item.label ? 'expanded': 'collapsed'" alt="">
     </span>
+
+
+    @if (item.isShowAddButton) { 
+        <button  pButton type="button" class="plus-btn" icon="pi pi-plus" aria-label="Add"> </button>
+    }
+    
 </a>
 
 

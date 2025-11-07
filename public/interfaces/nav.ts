@@ -8,4 +8,5 @@ export interface NavItem {
     children?: NavItem[]; 
     isAction?: boolean; 
     doFunction?: Function; 
+    isShowAddButton: boolean
 }

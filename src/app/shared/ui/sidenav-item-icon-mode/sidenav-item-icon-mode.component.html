@@ -1,16 +1,55 @@
-<a mat-list-item [ngStyle]="{'padding-left': (depth * 15) + 'px' }" (click)="onItemSelected(item)"  
-    [routerLink]="item.route"   class="menu-list-item" [class.active]="isActive(item.route)">
+<a [ngStyle]="{'padding-left': (depth * 15) + 'px' }" (click)="onItemSelected(item)" [routerLink]="item.route"
+    style="position: relative;" class="menu-list-item" [class.active]="isActive(item.route)">
 
-    <div class="image-container"  [class.active]="isActive(item.route)" >
+    <div class="image-container" [class.active]="isActive(item.route)">
         <img [src]="item.icon" alt="">
     </div>
 
-    <span class="menu-item-text ellipsis "  [class.active]="isActive(item.route)">  </span>
-    <span fxflex class="twistie-separator"></span> 
+
+    <span class="menu-item-text ellipsis " [class.active]="isActive(item.route)"> </span>
+    <span fxflex class="twistie-separator"></span>
+
+    <p [class.active]="isActive(item.route)" class="menu-list-item-label"> {{ item.label}} </p>
+
+    @if (item.children) {
+    <div class="asfasd" style="position: absolute; left: 1px; ">
+        <div class="demo-stage">
+            <div class="assets-popover">
+                <!-- HEADER -->
+                <div class="header">
+                    <div class="image-container" [class.active]="isActive(item.route)">
+                        <img [src]="item.icon" alt="">
+                    </div>
+                    <span class="title"> {{ item.label }} </span>
+                    <div class="header-glow"></div>
+                </div>
+
+                <div class="divider"></div>
+
+                @if (item.children.length) {
+                <div class="body">
+                    @for (item of item.children; track $index) {
+                    <a class="row muted">
+                        <span class="icon-box">
+                            <img [src]="item.icon" alt="">
+                        </span>
+                        <span class="label"> {{ item.label }} </span>
+                        @if (item.isShowAddButton) { 
+                            <button  pButton type="button" class="plus-btn" icon="pi pi-plus" aria-label="Add"> </button>
+                        }
+                    </a>
+
+                    }
+
+
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    }
 </a>
 
-
-<!-- Children -->
-<!-- <div class="children" [class.active]="navService.activeTab == item.label ">
-    <app-sidenav-item-icon-mode *ngFor="let child of item.children" [item]="child" [depth]="depth+1" [routerLink]="child?.route"></app-sidenav-item-icon-mode>
-</div> --> 
+<!-- Floating Add button -->
+<!-- -->
