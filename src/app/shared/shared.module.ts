@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe, DecimalPipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ButtonModule } from 'primeng/button';
 import { TextFieldComponent } from './ui/text-field/text-field.component';
@@ -15,6 +15,11 @@ import { RefreshOnZoomDirective } from '../../../public/directives/refresh-on-zo
 import { SidebarModule } from 'primeng/sidebar';
 import { AvatarModule } from 'primeng/avatar';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { CircularProgressComponent } from './ui/circular-progress/circular-progress.component';
+import { CardModule } from 'primeng/card';
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
+import { ChipModule } from 'primeng/chip'; 
 
 
 const shared = [
@@ -26,7 +31,14 @@ const shared = [
     MenubarModule,
     PanelMenuModule,
     RouterModule,
-    SidebarModule, PanelMenuModule, AvatarModule
+    SidebarModule, PanelMenuModule, AvatarModule, CardModule,
+    TableModule,
+    DropdownModule,
+    ChipModule,
+    ButtonModule,
+    FormsModule,
+    DatePipe,
+    DecimalPipe
 ]
 
 
@@ -38,7 +50,8 @@ const shared = [
         SidenavItemsComponent,
         SidenavItemIconModeComponent,
         RefreshOnZoomDirective,
-        UserInfoComponent
+        UserInfoComponent,
+        CircularProgressComponent, 
     ],
     exports: [
         TextFieldComponent,
@@ -48,6 +61,7 @@ const shared = [
         SidenavItemIconModeComponent,
         RefreshOnZoomDirective,
         UserInfoComponent,
+        CircularProgressComponent, 
         ...shared
     ],
     imports: [

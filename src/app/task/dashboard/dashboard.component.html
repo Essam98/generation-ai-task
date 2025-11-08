@@ -1,38 +1,176 @@
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1>  
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
-<h1>test</h1> 
+<div class="surface-ground dashboard p-3 md:p-4">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-3 mb-3" *ngFor="let s of ringStats">
+            <div class="stat-card ring">
+                <app-circular-progress [value]="s.ring!" [size]="120"> </app-circular-progress>
+
+                <div class="stat-text mt-3">
+                    <div class="stat-number">
+                        <strong>{{ s.value }}</strong><ng-container *ngIf="s.sub">/{{ s.sub }}</ng-container>
+                    </div>
+                    <div class="stat-label">{{ s.label }}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom rows: 6 small cards -->
+        <div class="col-lg-4 col-md-4 col-sm-3 " *ngFor="let s of smallStats">
+            <div class="stat-card small">
+                <div class="small-number">{{ s.value }}</div>
+                <div class="small-label">{{ s.label }}</div>
+            </div>
+        </div>
+
+        @if (isMobile) {
+        <div class="col-6" *ngFor="let w of wideStats">
+            <div class="stat-card wide">
+                <div class="wide-number">
+                    {{ w.value }}
+                    <span class="unit" *ngIf="w.unit">&nbsp;{{ w.unit }}</span>
+                </div>
+                <div class="wide-label">{{ w.label }}</div>
+            </div>
+        </div>
+        }
+
+
+        <!-- Shifts Section -->
+        <div class="mt-5 shifts-wrap">
+            <h2 class="section-title" *ngIf="isMobile">Shifts</h2>
+
+            <div class="shifts-container mt-3">
+                <!-- Search pill -->
+                <div class="search-pill-coin">
+                    <div class="search-pill">
+                        <i class="pi pi-search search-icon"></i>
+                        <input pInputText [(ngModel)]="searchTerm" type="text" placeholder="Search"
+                            class="p-inputtext search-input" />
+                    </div>
+                </div>
+
+                <!-- Icon buttons on right -->
+                <div class="action-con    ">
+                    <button pButton type="button" class="p-button  " (click)="onDownload()">
+                        <i class="pi pi-download"></i>
+                        <span *ngIf="!isMobile">Export</span>
+                    </button>
+                    <button pButton type="button" class="p-button" (click)="onUpload()">
+                        <i class="pi pi-upload"></i>
+                        <span *ngIf="!isMobile">Import</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Shift list -->
+            <div class="shift-item mt-5">
+                <div class="shift-left">
+                    <span class="clock-wrap">
+                        <img src="images\icons\afternoon.png" alt="">
+                    </span>
+                </div>
+                <div class="shift-main">
+                    <div class="shift-name">Afternoon Shift</div>
+                    <div class="shift-time">12:00 PM - 08:00 PM </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vehicles-wrap mt-5">
+            <p-table [value]="rows" [reorderableColumns]="true" [resizableColumns]="false"
+                [tableStyleClass]="'veh-table'" [scrollable]="true" scrollHeight="flex">
+ 
+                <!-- header -->
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pReorderableColumn class="th drag">
+                            <span class="th-label">Vehicle</span> 
+                            <i class="pi pi-arrow-down" ></i>
+                        </th>
+                        <th pReorderableColumn class="th drag" pSortableColumn="plate">
+                            <span class="th-label">Plate Num.</span>
+                            <i class="pi pi-arrow-down" ></i>
+                        </th>
+                        <th pReorderableColumn class="th drag" pSortableColumn="odometerKm">
+                            <span class="th-label">Odometer</span> 
+                        </th>
+                        <th pReorderableColumn class="th drag" pSortableColumn="gpsDate">
+                            <span class="th-label">GPS</span>
+                            <i class="pi pi-arrow-down" ></i>
+                        </th>
+                        <th pReorderableColumn class="th drag">
+                            <span class="th-label">Device</span>
+                        </th>
+                        <th pReorderableColumn class="th drag">
+                            <span class="th-label">SIM</span>
+                        </th>
+                        <th pReorderableColumn class="th drag" pSortableColumn="fleet">
+                            <span class="th-label">Fleet</span> 
+                        </th>
+                        <th class="th  ">
+                            <span class="th-label me-5">Status</span>
+                            <span class="filter-btn">
+                                <img src="images\icons\filter-btn.png" alt="">
+                            </span>
+                        </th>
+                    </tr>
+                </ng-template>
+ 
+                <!-- rows -->
+                <ng-template pTemplate="body" let-r>
+                    <tr>
+                        <!-- Vehicle -->
+                        <td class="td vehicle-cell">
+                            <span class="suv"> {{ r.type }} </span>
+                            <a href="#" class="veh-link">{{ r.id }}</a>
+                        </td>
+
+                        <!-- Plate -->
+                        <td class="td ">{{ r.plate }}</td>
+
+                        <!-- Odometer -->
+                        <td class="td">
+                            {{ r.odometerKm | number:'1.0-0' }} KM
+                        </td>
+
+                        <!-- GPS -->
+                        <td class="td">
+                            {{ r.gpsDate | date:'d-MMM-y' }}
+                            <div class="muted ">{{ r.gpsTime }}</div>
+                        </td>
+
+                        <!-- Device -->
+                        <td class="td">
+                            <div class="device">
+                                <img src="images\icons\icon-R.png" alt="">
+                                <div>
+                                    <div class="vendor">{{ r.deviceVendor }}</div>
+                                    <div class="muted ">{{ r.deviceCode }}</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <!-- SIM -->
+                        <td class="td">
+                            <div class="sim">
+                                <div class="muted">Allowance</div>
+                                <div class="">{{ r.simAllowance }}</div>
+                            </div>
+                        </td>
+
+                        <!-- Fleet -->
+                        <td class="td ">{{ r.fleet }}</td>
+
+                        <!-- Status -->
+                        <td class="td">
+                            <p-dropdown [options]="statusOptions" [(ngModel)]="r.status" [style]="{width:'100px'}"
+                                panelStyleClass="status-panel" styleClass="status-dd">
+                            </p-dropdown>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+
+    </div>
+</div>

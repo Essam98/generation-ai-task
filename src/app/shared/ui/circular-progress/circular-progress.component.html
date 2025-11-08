@@ -1,0 +1,16 @@
+  <div class="cp-wrap" [style.--cp-size.px]="size">
+    <svg class="cp" viewBox="0 0 100 100" role="img" aria-label="progress">
+      <!-- Track -->
+      <circle class="cp-track" cx="50" cy="50" r="42" />
+      <!-- Progress with rounded ends and a small gap -->
+      <circle
+        class="cp-bar"
+        cx="50" cy="50" r="42"
+        [attr.stroke-dasharray]="dash + ' ' + gap"
+        [attr.transform]="'rotate(' + startAngle + ' 50 50)'"
+      />
+    </svg>
+    <div class="cp-center">
+      <div class="cp-percent">{{ value }}%</div>
+    </div>
+  </div>

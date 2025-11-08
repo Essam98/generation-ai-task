@@ -15,22 +15,14 @@
 }
 
 .shell {
-    display: grid; 
-    transition: grid-template-columns .25s ease;
+    display: flex;  
 }
 
 .sidebar {
     background: var(--panel);
     border-right: 1px solid var(--border); 
 }
-
-.content {
-    background: #0e131a; 
+ 
+.content { 
+    flex: 1;
 }
-
-.sidebar::before,
-.content::before {
-    content: '';
-    display: block; 
-}
-
