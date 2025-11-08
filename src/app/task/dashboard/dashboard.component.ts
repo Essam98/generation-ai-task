@@ -13,34 +13,32 @@ export class DashboardComponent {
     searchTerm = '';
 
     shifts = [
-        { name: 'Afternoon Shift', start: '12:00 PM', end: '08:00 PM' },
-        // add more if needed
+        { name: 'Afternoon Shift', start: '12:00 PM', end: '08:00 PM' }, 
     ];
 
-    filteredShifts() {
-    }
-
-    onDownload() { /* hook your export logic here */ }
-    onUpload() { /* hook your import logic here */ }
+    filteredShifts() { } 
+    onDownload() {  }
+    onUpload() {   }
 
     ringStats: any[] = [
-        { label: 'Active Trips', value: 300, sub: '302', ring: 99 },
+        { label: 'Active Trips', value: 300, sub: '302', ring: 99,  },
         { label: 'Active Vehicles', value: 375, sub: '500', ring: 75 },
         { label: 'Under Maintenance', value: 16, sub: '20', ring: 80 },
     ];
+  
 
     smallStats: any[] = [
-        { label: 'In-Active Trips', value: 2 },
-        { label: 'Stopped Vehicles', value: 100 },
-        { label: 'Queue Maintenance', value: 4 },
-        { label: 'Total Departments', value: 7 },
-        { label: 'Total Fleets', value: 60 },
-        { label: 'Total Drivers', value: 300 },
-    ];
+        { label: 'In-Active Trips', value: 2, backgroundColor: '#1F1D2B99' },
+        { label: 'Stopped Vehicles', value: 100, backgroundColor: '#1F1D2B99' },
+        { label: 'Queue Maintenance', value: 4, backgroundColor: '#1F1D2B99' },
+        { label: 'Total Departments', value: 7, backgroundColor: '#1F1D2B59' },
+        { label: 'Total Fleets', value: 60, backgroundColor: '#1F1D2B59' },
+        { label: 'Total Drivers', value: 300, backgroundColor: '#1F1D2B59' },
+    ]  
 
     wideStats = [
-        { value: '43,303', unit: 'km', label: 'Total Distance Driven' },
-        { value: '291 hr : 23 min', unit: '', label: 'Total Hours Driven' }
+        { value: '43,303', unit: 'km', label: 'Total Distance Driven', backgroundColor: '#1F1D2B26' },
+        { value: '291 hr : 23 min', unit: '', label: 'Total Hours Driven', backgroundColor: '#1F1D2B26' }
     ];
 
 

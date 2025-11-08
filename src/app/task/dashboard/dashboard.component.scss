@@ -73,8 +73,7 @@
     color: var(--text);
     font-weight: 600;
 }
-
-/* Tighten grid spacing on large screens to mimic screenshot */
+ 
 .grid {
     gap: 1.25rem;
 }
@@ -95,19 +94,15 @@ app-circular-progress {
     margin-bottom: 15px;
 }
 
-
-/* Wide cards look */
+ 
 .stat-card.wide {
-    height: 150px;
-    /* similar height as screenshot */
+    height: 150px; 
     padding-block: 1.25rem;
     display: grid;
     place-items: center;
     text-align: center;
-    background: #1a2230;
-    /* a tad lighter than page bg */
-    border-radius: 22px;
-    /* extra round corners */
+    background: #1a2230; 
+    border-radius: 22px; 
     box-shadow: 0 2px 0 rgba(0, 0, 0, .08) inset;
 }
 

@@ -1,0 +1,33 @@
+<div class="large-view">
+    <div *ngFor="let s of ringStats">
+        <div class="stat-card ring">
+            <app-circular-progress [value]="s.ring!" [size]="120"> </app-circular-progress>
+            <div class="stat-text mt-3">
+                <div class="stat-number">
+                    <strong>{{ s.value }}</strong><ng-container *ngIf="s.sub">/{{ s.sub }}</ng-container>
+                </div>
+                <div class="stat-label">{{ s.label }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngFor="let s of smallStats">
+        <div class="stat-card small stat-text" [ngStyle]="{ backgroundColor: s.backgroundColor }" >
+            <div class="small-number">{{ s.value }}</div>
+            <div class="small-label">{{ s.label }}</div>
+        </div>
+    </div>
+
+    @if (isMobile) {
+    <div class="col-6" *ngFor="let w of wideStats">
+        <div class="stat-card wide">
+            <div class="wide-number">
+                {{ w.value }}
+                <span class="unit" *ngIf="w.unit">&nbsp;{{ w.unit }}</span>
+            </div>
+            <div class="wide-label">{{ w.label }}</div>
+        </div>
+    </div>
+    }
+
+</div>

@@ -97,14 +97,12 @@
 .label.muted {
     color: var(--muted);
 }
-
-/* ====== RIGHT-SIDE CHEVRON ====== */
+ 
 .chevron {
     margin-left: auto;
     color: var(--muted);
     font-size: 1.1rem;
-    transform: rotate(0deg);
-    /* up arrow as in screenshot */
+    transform: rotate(0deg); 
 }
 
 /* ====== PLUS ACTION BUTTON ====== */
