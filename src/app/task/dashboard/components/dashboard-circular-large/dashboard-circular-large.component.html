@@ -1,7 +1,9 @@
 <div class="large-view">
-    <div *ngFor="let s of ringStats">
+
+    <!-- RING CARDS -->
+    <div *ngFor="let s of ringStats; let i = index" data-aos="fade-up" [attr.data-aos-delay]="(i +1) * 200">
         <div class="stat-card ring">
-            <app-circular-progress [value]="s.ring!" [size]="120"> </app-circular-progress>
+            <app-circular-progress [value]="s.ring!" [size]="120"></app-circular-progress>
             <div class="stat-text mt-3">
                 <div class="stat-number">
                     <strong>{{ s.value }}</strong><ng-container *ngIf="s.sub">/{{ s.sub }}</ng-container>
@@ -9,17 +11,19 @@
                 <div class="stat-label">{{ s.label }}</div>
             </div>
         </div>
-    </div>
+    </div> 
 
-    <div *ngFor="let s of smallStats">
-        <div class="stat-card small stat-text" [ngStyle]="{ backgroundColor: s.backgroundColor }" >
+    <!-- SMALL CARDS -->
+    <div *ngFor="let s of smallStats; let i = index" data-aos="fade-up" [attr.data-aos-delay]="(i +1) * 400">
+        <div class="stat-card small stat-text" [ngStyle]="{ backgroundColor: s.backgroundColor }">
             <div class="small-number">{{ s.value }}</div>
             <div class="small-label">{{ s.label }}</div>
         </div>
     </div>
 
+    <!-- WIDE CARDS (only on mobile in your snippet) -->
     @if (isMobile) {
-    <div class="col-6" *ngFor="let w of wideStats">
+    <div class="col-6" *ngFor="let w of wideStats; let i = index" data-aos="zoom-in-up" [attr.data-aos-delay]="i * 120">
         <div class="stat-card wide">
             <div class="wide-number">
                 {{ w.value }}

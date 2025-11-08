@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, Subject, takeUntil } from 'rxjs';
 import { RouterOutlet } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
-
+import AOS from 'aos';
 
 @Component({
     selector: 'app-root',
@@ -24,6 +24,7 @@ export class AppComponent implements OnDestroy {
                 takeUntil(this.destroy$)
             )
             .subscribe(isSmall => this.isMobile = isSmall);
+            AOS.init({ once: true})
     }
 
     ngOnDestroy() {
