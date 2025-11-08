@@ -1,0 +1,26 @@
+.avatar{
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  overflow: hidden;
+  object-fit: cover;
+  border: 3px solid #464353;
+}
+
+.user-container { 
+    display: flex; 
+    gap: 10px;
+    // .user-image {  }
+    .user-info { 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        p { 
+            margin: 0 !important;
+            color: var(--text-white-color-secondary);
+            &.name {
+                font-weight: 700;
+            }
+        }
+    }
+}

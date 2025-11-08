@@ -1,12 +1,36 @@
-<p-menubar [model]="items" class="px-3">
-    <ng-template pTemplate="start">
-        <div class="flex items-center gap-2">
-            <i class="pi pi-apps"></i>
-            <span class="font-semibold">My App</span>
-        </div>
-    </ng-template>
+<nav class="navbar navbar-expand-md app-navbar navbar-dark">
+    <div class="container-fluid">
 
-    <ng-template pTemplate="end">
-        <button pButton type="button" icon="pi pi-user" class="p-button-text"></button>
-    </ng-template>
-</p-menubar>
+        <div class="d-flex align-items-center gap-3">
+            <a class="navbar-brand p-0 me-2" href="#">
+                <img src="images\logo\IdealSolutions-VerticalLockup-EN-White.png" class="brand-logo"
+                    alt="Ideal Solutions" />
+            </a>
+
+            <div class="d-flex align-items-center gap-3" *ngIf="!menuOpen">
+                <div class="app-badge">
+                    <img src="images\sidenav\dashboard-icon.png" class="app-badge-icon" alt="App icon" />
+                </div>
+                <span class="app-title">Dashboard</span>
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3 ms-auto">
+            <img *ngIf="!menuOpen" src="images\user\avatar.png" alt="Profile" class="avatar shadow-sm" />
+
+            <button class="navbar-toggler custom-toggler d-md-none" (click)="openMenu()" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i [class]="!menuOpen ? 'pi pi-bars' : 'pi pi-times'"></i>
+            </button>
+
+        </div>
+
+
+    </div>
+</nav>
+
+<div class="collapse navbar-collapse mt-3 mt-md-0" id="mainNavbar">
+    <app-sidenav-items *ngFor="let item of items" [item]="item"></app-sidenav-items>
+    <app-user-info></app-user-info>
+</div>

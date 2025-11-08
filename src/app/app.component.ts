@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, OnDestroy, signal } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, Subject, takeUntil } from 'rxjs';
 import { RouterOutlet } from '@angular/router';
@@ -11,7 +11,7 @@ import { SharedModule } from './shared/shared.module';
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
     title = 'generation-ai-task';
 
     isMobile = false;

@@ -1,0 +1,114 @@
+ /* Colors close to your screenshot */
+:root{
+  --app-bg: #0f1419;        /* dark navbar */
+  --app-cyan: #12c7d0;      /* cyan accent */
+  --app-text: #dfe6ee;      /* light text */
+  --avatar-border: #6a6f78; /* subtle gray outline */
+}
+
+.app-navbar{
+  background-color: #10141A;
+  padding-block: .75rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+/* Company logo on the far left */
+.brand-logo{
+  height: 40px;             /* adjust to your asset */
+  width: auto;
+}
+
+/* Cyan rounded-square badge holding an icon */
+.app-badge{
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background-color: var(--primary-color);
+  display: grid;
+  place-items: center;
+}
+.app-badge-icon{
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) saturate(100%) invert(12%) sepia(10%) saturate(375%)
+          hue-rotate(169deg) brightness(96%) contrast(88%); /* keep icon dark */
+}
+
+/* “Dashboard” title in cyan */
+.app-title{
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  letter-spacing: .2px;
+}
+
+/* Avatar with rounded border */
+.avatar{
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  overflow: hidden;
+  object-fit: cover;
+  border: 3px solid #464353;
+}
+
+/* Remove default Bootstrap toggler border */
+.navbar-toggler{
+  border: none;
+  box-shadow: none !important;
+  padding: .25rem;
+}
+
+/* Custom hamburger to match the thin 3-line look */
+.custom-toggler .burger-lines,
+.custom-toggler .burger-lines::before,
+.custom-toggler .burger-lines::after{
+  content: "";
+  display: block;
+  width: 26px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--primary-color); 
+}
+.custom-toggler .burger-lines{
+  position: relative;
+}
+.custom-toggler .burger-lines::before{
+  position: absolute;
+  top: -7px;
+}
+.custom-toggler .burger-lines::after{
+  position: absolute;
+  top: 7px;
+}
+
+/* Optional: nav links styling on dark bg */
+.navbar-nav .nav-link{
+  color: #cbd5e1;
+  font-weight: 600;
+}
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover{
+  color: var(--app-cyan);
+}
+ 
+ 
+
+.user-container { 
+    display: flex; 
+    gap: 10px;
+    // .user-image {  }
+    .user-info { 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        p { 
+            margin: 0 !important;
+            color: var(--text-white-color-secondary);
+            &.name {
+                font-weight: 700;
+            }
+        }
+    }
+}
