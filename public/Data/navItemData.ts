@@ -10,25 +10,25 @@ export const NavItemsData: NavItem[] = [
     {
         label: "Report",
         icon: "images/sidenav/report-icon.png",
-        route: "/a",
+        route: "/report",
         isShowAddButton: false
     },
     {
         label: "Organization",
         icon: "images/sidenav/organization-icon.png",
-        route: "/b",
+        route: "/organization",
         isShowAddButton: false,
         children: [
             {
                 label: "Invoices",
                 icon: "images/sidenav/invoice-icon.png",
-                route: "/c",
+                route: "/invoice",
                 isShowAddButton: false
             },
             {
                 label: "Users",
                 icon: "images/sidenav/user-icon.png",
-                route: "/d",
+                route: "/user/add",
                 isShowAddButton: true
             },
 

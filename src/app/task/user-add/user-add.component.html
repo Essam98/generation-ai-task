@@ -1,1 +1,84 @@
-<p>user-add works!</p>
+<section class="stage">
+    <!-- Avatar -->
+    <img class="avatar" [src]="'images/user/avatar.png'" alt="Profile avatar">
+
+    <!-- Update button -->
+    <button pButton type="button" class="update-btn hvr-grow" icon="pi pi-camera" label="Update Image"
+        (click)="fileInput.click()">
+    </button>
+
+    <!-- Hidden file input -->
+    <input #fileInput type="file" accept="image/*" (change)="onFileChange($event)" hidden>
+
+
+    <section class="page">
+        <form class="form">
+
+            <!-- row: names -->
+            <div class="grid-3">
+                <div class="field">
+                    <label>First Name <span class="req">*</span></label>
+                    <input pInputText [(ngModel)]="model.first" name="first" placeholder="Ahmed" />
+                </div>
+                <div class="field">
+                    <label>Middle Name</label>
+                    <input pInputText [(ngModel)]="model.middle" name="middle" placeholder="Jasim" />
+                </div>
+                <div class="field">
+                    <label>Last Name <span class="req">*</span></label>
+                    <input pInputText [(ngModel)]="model.last" name="last" placeholder="Ali" />
+                </div>
+            </div>
+
+            <div class="field mt-4">
+                <label>Email <span class="req">*</span></label>
+
+                <div class="email-wrap">
+                    <i class="pi pi-envelope me-3"></i>
+
+                    <input pInputText [(ngModel)]="model.email" name="email" placeholder="Ahmed.Ali@Company.com"
+                        class="email-input" autocomplete="email" />
+                </div>
+            </div>
+
+            <div class="field  mt-4">
+                <label>Phone <span class="req">*</span></label>
+
+                <div class="email-wrap ">
+                    <i class="pi pi-envelope me-3"></i>
+                    <input pInputText [(ngModel)]="model.phone" name="email" placeholder="XXX XX XXX XXXX"
+                        class="email-input" autocomplete="email" />
+                </div>
+            </div>
+
+            <div class="field  mt-4">
+                <label> <span class="top">RFID</span> <p-inputSwitch [(ngModel)]="model.enabled" name="rfidEnabled" styleClass="rfid-switch">
+                    </p-inputSwitch> </label>
+
+                <div class="email-wrap ">
+                    <input pInputText [(ngModel)]="model.rfid" name="rfid" placeholder="Ahmed.Ali@Company.com" class="rfid email-input" />
+                </div>
+            </div>
+
+ 
+            <!-- role -->
+            <div class="field mt-4">
+                <label>Role <span class="req">*</span></label>
+                <p-dropdown [options]="roles" [(ngModel)]="model.role" name="role" optionLabel="label"
+                    optionValue="value" placeholder="Super Admin" styleClass="w-100">
+                </p-dropdown>
+            </div>
+
+            <!-- department -->
+            <div class="field mt-4">
+                <label>Department <span class="req">*</span></label>
+                <p-dropdown [options]="departments" [(ngModel)]="model.department" name="department" optionLabel="label"
+                    optionValue="value" placeholder="Fire Fighter" styleClass="w-100">
+                </p-dropdown>
+            </div>
+
+        </form>
+    </section>
+
+
+</section>

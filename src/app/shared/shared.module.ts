@@ -20,6 +20,7 @@ import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { ChipModule } from 'primeng/chip'; 
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 
 const shared = [
@@ -38,7 +39,8 @@ const shared = [
     ButtonModule,
     FormsModule,
     DatePipe,
-    DecimalPipe
+    DecimalPipe,
+    InputSwitchModule
 ]
 
 

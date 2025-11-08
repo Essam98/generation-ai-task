@@ -29,7 +29,7 @@
                 @if (item.children.length) {
                 <div class="body">
                     @for (item of item.children; track $index) {
-                    <div class="body-items"> 
+                    <div class="body-items" [routerLink]="item.route"> 
                         <span class="icon-box image-container">
                             <img [src]="item.icon" alt="">
                         </span>
