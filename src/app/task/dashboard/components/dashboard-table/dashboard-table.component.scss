@@ -1,0 +1,175 @@
+:host {
+    display: block;
+}
+
+.vehicles-wrap {
+    --bg: #0f1419;
+    --head: #232533;
+    --row: #1b1f2a;
+    --muted: #8b92a3;
+    --text: #dfe6ee;
+    --accent: #13c7cf;
+    background: transparent;
+}
+
+.table-caption {
+    display: flex;
+    align-items: center;
+    padding: .25rem .5rem;
+}
+
+.table-caption .spacer {
+    flex: 1;
+}
+
+.icon-ghost {
+    width: 40px;
+    height: 40px;
+    border: none;
+    color: #e4e8f2;
+    border-radius: 12px;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, .18), inset 0 0 0 1px rgba(0, 0, 0, .25);
+}
+
+.icon-ghost.slim {
+    width: 44px;
+}
+
+/* table look */
+.veh-table {
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.veh-table .p-datatable-thead>tr>th {
+    color: #b7becc;
+    font-weight: 700;
+    border: none;
+    padding: .9rem .9rem;
+    position: relative;
+    ;
+}
+
+.veh-table .p-datatable-tbody>tr>td {
+    color: var(--text-white-color-secondary);
+    border: none;
+    padding: 1.1rem .9rem;
+    vertical-align: middle;
+
+}
+
+.veh-table .p-datatable-tbody>tr {
+    border-bottom: 1px solid rgba(255, 255, 255, .04);
+}
+
+/* drag dots hint on headers (⋮⋮) */
+.th.drag::before {
+    content: '⋮⋮';
+    color: #4a5060;
+    margin-right: .35rem;
+}
+
+.th-label {
+    margin-right: .35rem;
+}
+
+
+/* Vehicle cell */
+.vehicle-cell {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.type-chip {
+    background: #2a3243;
+    color: #d7deea;
+    border-radius: 10px;
+    height: 28px;
+}
+
+
+/* Device block with lightning icon */
+.device {
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+}
+
+.bolt {
+    color: #67f08a;
+}
+
+.vendor {
+    font-weight: 700;
+}
+
+/* SIM block */
+.sim .mono {
+    color: #dfe6ee;
+    font-weight: 700;
+}
+
+/* Status dropdown look like rounded pill */
+.status-dd {
+    border: 1px solid #CECBDE !important;
+    border-radius: 12px;
+    color: #e9eef6;
+    background-color: transparent !important;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+
+.status-panel {
+    background: transparent;
+    border: 1px solid #CECBDE;
+}
+
+::ng-deep {
+    .p-datatable-tbody>tr {
+        background-color: #252836 !important;
+    }
+
+    .p-datatable-thead>tr>th {
+        color: #9E9BAD !important;
+    }
+
+    .pi-arrow-down {
+        color: #464353 !important;
+        font-size: 10px;
+    }
+
+
+}
+
+.filter-btn {
+    padding: 9px 14px;
+    box-shadow: 0px 1px 1px 0px #02001799;
+    color: #CECBDE;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #252836;
+}
+
+.suv {
+    color: #9E9BAD;
+    border-radius: 6px;
+    border: 1px solid #9E9BAD;
+    padding: 0 6px;
+}
+
+
+.veh-link {
+    color: #CECBDE;
+    text-decoration: underline;
+    padding: 24px 0;
+}
+
+.td {
+    color: #CECBDE;
+}
+
+.pi-bolt {
+    filter: brightness(1.6) !important;
+}

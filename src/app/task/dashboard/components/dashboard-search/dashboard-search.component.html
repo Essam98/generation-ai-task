@@ -1,1 +1,40 @@
-<p>dashboard-search works!</p>
+        <!-- Shifts Section -->
+        <div class="mt-5 shifts-wrap">
+            <h2 class="section-title" *ngIf="isMobile">Shifts</h2>
+
+            <div class="shifts-container mt-3">
+                <!-- Search pill -->
+                <div class="search-pill-coin">
+                    <div class="search-pill">
+                        <i class="pi pi-search search-icon"></i>
+                        <input pInputText [(ngModel)]="searchTerm" type="text" placeholder="Search"
+                            class="p-inputtext search-input" />
+                    </div>
+                </div>
+
+                <!-- Icon buttons on right -->
+                <div class="action-con    ">
+                    <button pButton type="button" class="p-button  hvr-grow"  >
+                        <i class="pi pi-download"></i>
+                        <span *ngIf="!isMobile">Export</span>
+                    </button>
+                    <button pButton type="button" class="p-button hvr-grow" >
+                        <i class="pi pi-upload"></i>
+                        <span *ngIf="!isMobile">Import</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Shift list -->
+            <div class="shift-item mt-5">
+                <div class="shift-left">
+                    <span class="clock-wrap">
+                        <img src="images\icons\afternoon.png" alt="">
+                    </span>
+                </div>
+                <div class="shift-main">
+                    <div class="shift-name">Afternoon Shift</div>
+                    <div class="shift-time">12:00 PM - 08:00 PM </div>
+                </div>
+            </div>
+        </div>

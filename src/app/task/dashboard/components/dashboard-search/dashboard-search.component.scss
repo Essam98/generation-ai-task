@@ -1,0 +1,106 @@
+
+/* Search pill */
+.search-pill {
+    position: relative;
+    background: #232634;
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .15);
+    border-radius: 4px;
+}
+
+.search-input {
+    width: 100%;
+    background: #1F1D2B;
+    border: none !important;
+    box-shadow: none !important;
+    color: #c1c6d4;
+    font-weight: 600;
+    padding: 10px 49px;
+}
+
+.search-input::placeholder {
+    color: #757b87;
+    font-weight: 600;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9aa3af;
+    font-size: 1.2rem;
+}
+
+/* Shift row */
+.shift-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .5rem 0;
+}
+
+.shift-left {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.clock-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    color: #cfd5e3;
+}
+
+.clock-wrap .small-over {
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+    font-size: .75rem;
+    opacity: .85;
+}
+
+.shift-main {}
+
+.shift-name {
+    color: #dfe6ee;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.shift-time {
+    color: #9aa6b2;
+    font-weight: 600;
+    margin-top: .25rem;
+}
+
+/* Dark page tone consistency */
+.shifts-wrap {
+    background: transparent;
+}
+
+.shifts-container {
+    display: flex;
+    gap: 20px;
+
+    .search-pill-coin {
+        flex: 1;
+    }
+
+    .action-con {
+        display: flex;
+        gap: 20px;
+
+        .p-button {
+            background-color: #252836;
+            box-shadow: 0px 1px 1px 0px #02001799;
+            color: #CECBDE;
+            border: none !important;
+        }
+    }
+}
+ 

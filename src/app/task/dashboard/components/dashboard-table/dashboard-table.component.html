@@ -1,1 +1,95 @@
-<p>dashboard-table works!</p>
+        <div class="vehicles-wrap mt-5">
+            <p-table [value]="rows" [reorderableColumns]="true" [resizableColumns]="false"
+                [tableStyleClass]="'veh-table'" [scrollable]="true" scrollHeight="flex">
+ 
+                <!-- header -->
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pReorderableColumn class="th drag">
+                            <span class="th-label">Vehicle</span> 
+                            <i class="pi pi-arrow-down" ></i>
+                        </th>
+                        <th pReorderableColumn class="th drag" pSortableColumn="plate">
+                            <span class="th-label">Plate Num.</span>
+                            <i class="pi pi-arrow-down" ></i>
+                        </th>
+                        <th pReorderableColumn class="th drag" pSortableColumn="odometerKm">
+                            <span class="th-label">Odometer</span> 
+                        </th>
+                        <th pReorderableColumn class="th drag" pSortableColumn="gpsDate">
+                            <span class="th-label">GPS</span>
+                            <i class="pi pi-arrow-down" ></i>
+                        </th>
+                        <th pReorderableColumn class="th drag">
+                            <span class="th-label">Device</span>
+                        </th>
+                        <th pReorderableColumn class="th drag">
+                            <span class="th-label">SIM</span>
+                        </th>
+                        <th pReorderableColumn class="th drag" pSortableColumn="fleet">
+                            <span class="th-label">Fleet</span> 
+                        </th>
+                        <th class="th  ">
+                            <span class="th-label me-5">Status</span>
+                            <span class="filter-btn">
+                                <img src="images\icons\filter-btn.png" alt="">
+                            </span>
+                        </th>
+                    </tr>
+                </ng-template>
+ 
+                <!-- rows -->
+                <ng-template pTemplate="body" let-r>
+                    <tr>
+                        <!-- Vehicle -->
+                        <td class="td vehicle-cell">
+                            <span class="suv"> {{ r.type }} </span>
+                            <a href="#" class="veh-link">{{ r.id }}</a>
+                        </td>
+
+                        <!-- Plate -->
+                        <td class="td ">{{ r.plate }}</td>
+
+                        <!-- Odometer -->
+                        <td class="td">
+                            {{ r.odometerKm | number:'1.0-0' }} KM
+                        </td>
+
+                        <!-- GPS -->
+                        <td class="td">
+                            {{ r.gpsDate | date:'d-MMM-y' }}
+                            <div class="muted ">{{ r.gpsTime }}</div>
+                        </td>
+
+                        <!-- Device -->
+                        <td class="td">
+                            <div class="device">
+                                <img src="images\icons\icon-R.png" alt="">
+                                <div>
+                                    <div class="vendor">{{ r.deviceVendor }}</div>
+                                    <div class="muted ">{{ r.deviceCode }}</div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <!-- SIM -->
+                        <td class="td">
+                            <div class="sim">
+                                <div class="muted">Allowance</div>
+                                <div class="">{{ r.simAllowance }}</div>
+                            </div>
+                        </td>
+
+                        <!-- Fleet -->
+                        <td class="td ">{{ r.fleet }}</td>
+
+                        <!-- Status -->
+                        <td class="td">
+                            <p-dropdown [options]="statusOptions" [(ngModel)]="r.status" [style]="{width:'100px'}"
+                                panelStyleClass="status-panel" styleClass="status-dd hvr-grow">
+                            </p-dropdown>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>  
+        </div>

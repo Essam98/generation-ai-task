@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
     selector: 'app-dashboard-search',
@@ -6,6 +6,15 @@ import { Component } from '@angular/core';
     templateUrl: './dashboard-search.component.html',
     styleUrl: './dashboard-search.component.scss'
 })
-export class DashboardSearchComponent {
+export class DashboardSearchComponent implements OnChanges {
+
+    @Input() isMobile: boolean = false;
+    searchTerm = '';
+
+    ngOnChanges(changes: any): void {
+        if (changes.isMobile.currentValue != changes.isMobile.previousValue) {
+            this.isMobile = changes.isMobile.currentValue
+        }
+    }
 
 }
