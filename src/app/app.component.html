@@ -1,6 +1,5 @@
-<app-header *ngIf="isMobile"></app-header> 
-<!-- appRefreshOnZoom -->
-<div  class="shell" [style.gridTemplateColumns]="columns()">
+<app-header *ngIf="isMobile"></app-header>  
+<div appRefreshOnZoom class="shell" [style.gridTemplateColumns]="columns()">
     <aside class="sidebar" *ngIf="!isMobile">
         <app-side-bar (buttonToggeled)="toggle()" ></app-side-bar>
     </aside>

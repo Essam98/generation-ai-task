@@ -76,7 +76,7 @@
     }
 
     &:hover {
-        .asfasd {
+        .nav-onhover {
             visibility: visible;
         }
     }
@@ -118,7 +118,7 @@
 
 .image-container {
     background-color: #252836;
-    padding: 4px 2px 0px 2px;
+    padding: 9px 11px 7px 11px;
     border-radius: 10px;
     box-shadow: 0px 1px 1px 0px #02001799;
 
@@ -128,57 +128,35 @@
 }
 
 
-.asfasd {
-    visibility: hidden;
-    position: relative;
-    z-index: 123;
+.nav-onhover {
+    // visibility: hidden; 
 
-    :host {
-        --bg: #10141A;
-        /* app background */
-        --panelTop: rgba(36, 44, 56, .58);
-        --panelBot: rgba(16, 20, 26, .78);
-        --stroke: red;
-        --accent: #00C5D6;
-        --mutedText: #8E8C99;
-        --mutedIcon: #9AA4B2;
-        --iconBoxTop: #474957;
-        --iconBoxBot: #595968;
-    }
-
-    /* demo stage so you can see it floating; remove in your app */
-    .demo-stage {
-        // background: var(--bg);
-    }
-
-    /* ===== Popover shell ===== */
     .assets-popover {
-        width: 274px;
+        width: 370px;
         border-radius: 15px;
         border-bottom-right-radius: 0;
-        background: linear-gradient(180deg, var(--page-background) 0%, var(--page-background) 100%);
         border: 1px solid #464353;
-        backdrop-filter: blur(14px);
+        background: #10141A4D;
+        backdrop-filter: blur(35px);
         box-shadow:
             0 12px 40px rgba(0, 0, 0, .55),
             inset 0 1px 0 rgba(255, 255, 255, .05);
         height: 70px;
     }
+ 
 
-    /* ===== Header ===== */
     .header {
         position: relative;
         display: flex;
         align-items: center;
         gap: .75rem;
-        padding: 15px;
+        padding: 12px;
 
     }
 
     .gear {
         color: #fff;
-        z-index: 1;
-        filter: drop-shadow(0 2px 8px rgba(0, 197, 214, .35));
+        z-index: 1; 
     }
 
     .title {
@@ -192,25 +170,19 @@
     .header-glow {
         position: absolute;
         inset: 0 0 auto 0;
-        height: 100%;
-        background:
-            radial-gradient(120px 100% at 36px 50%, rgba(0, 197, 214, .55), rgba(0, 197, 214, .12) 60%, transparent 70%),
-            linear-gradient(90deg, rgba(0, 197, 214, .18), transparent 45%);
-        pointer-events: none;
-        mix-blend-mode: screen;
+        height: 100%; 
     }
 
     .divider {
-        height: 1px;
-        background: var(--stroke);
+        height: 1px; 
     }
 
-    /* ===== Body rows ===== */
     .body {
         position: relative;
-        width: 75%;
+        width: 81.5%;
         bottom: 0;
-        background-color: var(--page-background) !important;
+        background: #10141A4D;
+        backdrop-filter: blur(35px);
         left: 69px;
         border-bottom-right-radius: 15px;
         border: 1px solid #464353;
@@ -221,31 +193,23 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        background-color: var(--page-background);
         padding: 10px 7px;
     }
 
     .label {
         font-size: 1.05rem;
         letter-spacing: .2px;
-        color: var(--text-white-color-secondary) !important;
     }
 
-    .icon-box {
-        background-color: #252836 !important; 
+    .icon-box { 
         min-width: 48px;
         display: grid;
         place-items: center;
-        border-radius: 14px;  
-        color: var(--text-white-color-secondary);
-        background-color: red;
+        border-radius: 14px;
         padding: 4px 2px 0px 2px;
-        border-radius: 10px;    
+        border-radius: 10px;
     }
 
-
- 
- 
 }
 
 .menu-list-item-label {
@@ -258,4 +222,16 @@
     &.active {
         color: var(--primary-color);
     }
+}
+
+.body-items {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 30px 5px;
+    color: #fff;
+    background: #10141A4D !important; 
+    backdrop-filter: blur(35px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
 }

@@ -74,7 +74,6 @@
 }
 
 
-/* Vehicle cell */
 .vehicle-cell {
     display: flex;
     align-items: center;
@@ -89,7 +88,6 @@
 }
 
 
-/* Device block with lightning icon */
 .device {
     display: flex;
     align-items: flex-start;
@@ -172,4 +170,12 @@
 
 .pi-bolt {
     filter: brightness(1.6) !important;
+}
+
+::ng-deep { 
+    p-table {
+        thead { 
+            position: static !important;
+        }
+    } 
 }

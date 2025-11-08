@@ -5,17 +5,16 @@
         <img [src]="item.icon" alt="">
     </div>
 
-    <span class="menu-item-text ellipsis " [class.active]="isActive(item.route)"> {{ item.label }} </span>
+    <span class="menu-item-text ellipsis pt-2" [class.active]="isActive(item.route)"> {{ item.label }} </span>
     <span fxflex class="twistie-separator"></span>
 
     <span *ngIf="item.children && item.children.length">
-        <img src="images\icons\arrow.png"
-            [@indicatorRotate]="navService.activeTab == item.label ? 'expanded': 'collapsed'" alt="">
+        <img src="images\icons\arrow.png" [@indicatorRotate]="navService.activeTab == item.label ? 'expanded': 'collapsed'" alt="">
     </span>
 
 
     @if (item.isShowAddButton) {
-    <button pButton type="button" class="plus-btn" icon="pi pi-plus" aria-label="Add"> </button>
+        <button pButton type="button" class="plus-btn" icon="pi pi-plus" aria-label="Add"> </button>
     }
 
 </a>
@@ -23,6 +22,5 @@
 
 <!-- Children -->
 <div class="children" [class.active]="navService.activeTab == item.label ">
-    <app-sidenav-items *ngFor="let child of item.children" [item]="child" [depth]="depth+1"
-        [routerLink]="child?.route"></app-sidenav-items>
+    <app-sidenav-items *ngFor="let child of item.children" [item]="child" [depth]="depth+1" [routerLink]="child?.route"></app-sidenav-items>
 </div>

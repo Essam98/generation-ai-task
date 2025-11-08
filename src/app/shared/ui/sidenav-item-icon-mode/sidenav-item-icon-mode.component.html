@@ -12,10 +12,10 @@
     <p [class.active]="isActive(item.route)" class="menu-list-item-label"> {{ item.label}} </p>
 
     @if (item.children) {
-    <div class="asfasd" style="position: absolute; left: 1px; ">
+    <div class="nav-onhover" style="position: absolute; left: 1px; ">
         <div class="demo-stage">
             <div class="assets-popover">
-                <!-- HEADER -->
+                <!-- HEADER --> 
                 <div class="header">
                     <div class="image-container" [class.active]="isActive(item.route)">
                         <img [src]="item.icon" alt="">
@@ -29,19 +29,17 @@
                 @if (item.children.length) {
                 <div class="body">
                     @for (item of item.children; track $index) {
-                    <a class="row muted">
-                        <span class="icon-box">
+                    <div class="body-items"> 
+                        <span class="icon-box image-container">
                             <img [src]="item.icon" alt="">
                         </span>
                         <span class="label"> {{ item.label }} </span>
-                        @if (item.isShowAddButton) { 
-                            <button  pButton type="button" class="plus-btn" icon="pi pi-plus" aria-label="Add"> </button>
+                        @if (item.isShowAddButton) {
+                        <button pButton type="button" class="plus-btn" icon="pi pi-plus" aria-label="Add"> </button>
                         }
-                    </a>
+                    </div>
 
-                    }
-
-
+                    } 
                 </div>
                 }
             </div>
@@ -49,7 +47,5 @@
     </div>
 
     }
-</a>
-
-<!-- Floating Add button -->
-<!-- -->
+</a> 
+  

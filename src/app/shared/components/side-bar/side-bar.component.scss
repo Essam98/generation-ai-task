@@ -108,10 +108,10 @@
 /* ====== PLUS ACTION BUTTON ====== */
 :host ::ng-deep .plus-btn.p-button {
     margin-left: auto;
-    width: 52px;
-    height: 52px;
+    width: 45px;
+    height: 45px;
     border-radius: 14px;
-    background: var(--accent);
+    background: var(--primary-color);
     border: none;
     box-shadow:
         0 1px 0 rgba(255, 255, 255, .15) inset,
