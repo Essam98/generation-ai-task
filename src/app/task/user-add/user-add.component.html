@@ -1,84 +1,170 @@
+<!-- profile-form.component.html -->
 <section class="stage">
-    <!-- Avatar -->
-    <img class="avatar" [src]="'images/user/avatar.png'" alt="Profile avatar">
+  <!-- Avatar -->
+  <img class="avatar" [src]="'images/user/avatar.png'" alt="Profile avatar" />
 
-    <!-- Update button -->
-    <button pButton type="button" class="update-btn hvr-grow" icon="pi pi-camera" label="Update Image"
-        (click)="fileInput.click()">
-    </button>
+  <!-- Update button -->
+  <button
+    pButton
+    type="button"
+    class="update-btn hvr-grow"
+    icon="pi pi-camera"
+    label="Update Image"
+    (click)="fileInput.click()"
+  ></button>
 
-    <!-- Hidden file input -->
-    <input #fileInput type="file" accept="image/*" (change)="onFileChange($event)" hidden>
+  <!-- Hidden file input -->
+  <input #fileInput type="file" accept="image/*" (change)="onFileChange($event)" hidden />
 
+  <section class="page">
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+      <!-- row: names -->
+      <div class="grid-3">
+        <div class="field">
+          <label>
+            First Name
+            <span class="req">*</span>
+          </label>
+          <input
+            pInputText
+            formControlName="first"
+            placeholder="Ahmed"
+            [ngClass]="{ 'p-invalid': isInvalid('first') }"
+          />
+          <small class="p-error" *ngIf="isInvalid('first')">
+            First name is required and cannot be blank.
+          </small>
+        </div>
 
-    <section class="page">
-        <form class="form">
+        <div class="field">
+          <label>Middle Name</label>
+          <input pInputText formControlName="middle" placeholder="Jasim" />
+          <small class="p-error" *ngIf="f['middle'].errors?.['maxlength'] && isInvalid('middle')">
+            Middle name is too long.
+          </small>
+        </div>
 
-            <!-- row: names -->
-            <div class="grid-3">
-                <div class="field">
-                    <label>First Name <span class="req">*</span></label>
-                    <input pInputText [(ngModel)]="model.first" name="first" placeholder="Ahmed" />
-                </div>
-                <div class="field">
-                    <label>Middle Name</label>
-                    <input pInputText [(ngModel)]="model.middle" name="middle" placeholder="Jasim" />
-                </div>
-                <div class="field">
-                    <label>Last Name <span class="req">*</span></label>
-                    <input pInputText [(ngModel)]="model.last" name="last" placeholder="Ali" />
-                </div>
-            </div>
+        <div class="field">
+          <label>
+            Last Name
+            <span class="req">*</span>
+          </label>
+          <input
+            pInputText
+            formControlName="last"
+            placeholder="Ali"
+            [ngClass]="{ 'p-invalid': isInvalid('last') }"
+          />
+          <small class="p-error" *ngIf="isInvalid('last')">
+            Last name is required and cannot be blank.
+          </small>
+        </div>
+      </div>
 
-            <div class="field mt-4">
-                <label>Email <span class="req">*</span></label>
+      <!-- Email -->
+      <div class="field mt-4">
+        <label>Email <span class="req">*</span></label>
 
-                <div class="email-wrap">
-                    <i class="pi pi-envelope me-3"></i>
+        <div class="email-wrap">
+          <i class="pi pi-envelope me-3"></i>
+          <input
+            pInputText
+            formControlName="email"
+            placeholder="Ahmed.Ali@Company.com"
+            class="email-input"
+            autocomplete="email"
+            [ngClass]="{ 'p-invalid': isInvalid('email') }"
+          />
+        </div>
+        <small class="p-error" *ngIf="f['email'].errors?.['required'] && isInvalid('email')">
+          Email is required.
+        </small>
+        <small class="p-error" *ngIf="f['email'].errors?.['email'] && isInvalid('email')">
+          Please enter a valid email.
+        </small>
+      </div>
 
-                    <input pInputText [(ngModel)]="model.email" name="email" placeholder="Ahmed.Ali@Company.com"
-                        class="email-input" autocomplete="email" />
-                </div>
-            </div>
+      <!-- Phone -->
+      <div class="field mt-4">
+        <label>Phone <span class="req">*</span></label>
 
-            <div class="field  mt-4">
-                <label>Phone <span class="req">*</span></label>
+        <div class="email-wrap">
+          <i class="pi pi-phone me-3"></i>
+          <input
+            pInputText
+            formControlName="phone"
+            placeholder="XXX XX XXX XXXX"
+            class="email-input"
+            autocomplete="tel"
+            [ngClass]="{ 'p-invalid': isInvalid('phone') }"
+          />
+        </div>
+        <small class="p-error" *ngIf="f['phone'].errors?.['required'] && isInvalid('phone')">
+          Phone is required.
+        </small>
+        <small class="p-error" *ngIf="f['phone'].errors?.['pattern'] && isInvalid('phone')">
+          Enter a valid phone number.
+        </small>
+      </div>
 
-                <div class="email-wrap ">
-                    <i class="pi pi-envelope me-3"></i>
-                    <input pInputText [(ngModel)]="model.phone" name="email" placeholder="XXX XX XXX XXXX"
-                        class="email-input" autocomplete="email" />
-                </div>
-            </div>
+      <!-- RFID -->
+      <div class="field mt-4">
+        <label>
+          <span class="top">RFID</span>
+          <p-inputSwitch  formControlName="rfidEnabled" styleClass="rfid-switch"></p-inputSwitch>
+        </label>
 
-            <div class="field  mt-4">
-                <label> <span class="top">RFID</span> <p-inputSwitch [(ngModel)]="model.enabled" name="rfidEnabled" styleClass="rfid-switch">
-                    </p-inputSwitch> </label>
+        <div class="email-wrap">
+          <input
+            pInputText
+            formControlName="rfid"
+            placeholder="Enter RFID"
+            class="rfid email-input" 
+            [ngClass]="{ 'p-invalid': isInvalid('rfid') }"
+          />
+        </div>
+        <small class="p-error" *ngIf="f['rfid'].errors?.['required'] && isInvalid('rfid')">
+          RFID is required when enabled.
+        </small>
+        <small class="p-error" *ngIf="f['rfid'].errors?.['pattern'] && isInvalid('rfid')">
+          RFID must be 6–32 alphanumeric characters.
+        </small>
+      </div>
 
-                <div class="email-wrap ">
-                    <input pInputText [(ngModel)]="model.rfid" name="rfid" placeholder="Ahmed.Ali@Company.com" class="rfid email-input" />
-                </div>
-            </div>
+      <!-- Role -->
+      <div class="field mt-4">
+        <label>Role <span class="req">*</span></label>
+        <p-dropdown
+          [options]="roles"
+          formControlName="role"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Super Admin"
+          styleClass="w-100"
+          [ngClass]="{ 'p-invalid': isInvalid('role') }"
+        ></p-dropdown>
+        <small class="p-error" *ngIf="isInvalid('role')">Role is required.</small>
+      </div>
 
- 
-            <!-- role -->
-            <div class="field mt-4">
-                <label>Role <span class="req">*</span></label>
-                <p-dropdown [options]="roles" [(ngModel)]="model.role" name="role" optionLabel="label"
-                    optionValue="value" placeholder="Super Admin" styleClass="w-100">
-                </p-dropdown>
-            </div>
+      <!-- Department -->
+      <div class="field mt-4">
+        <label>Department <span class="req">*</span></label>
+        <p-dropdown
+          [options]="departments"
+          formControlName="department"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Fire Fighter"
+          styleClass="w-100"
+          [ngClass]="{ 'p-invalid': isInvalid('department') }"
+        ></p-dropdown>
+        <small class="p-error" *ngIf="isInvalid('department')">Department is required.</small>
+      </div>
 
-            <!-- department -->
-            <div class="field mt-4">
-                <label>Department <span class="req">*</span></label>
-                <p-dropdown [options]="departments" [(ngModel)]="model.department" name="department" optionLabel="label"
-                    optionValue="value" placeholder="Fire Fighter" styleClass="w-100">
-                </p-dropdown>
-            </div>
-
-        </form>
-    </section>
-
-
+      <!-- Actions -->
+      <!-- <div class="mt-5">
+        <button pButton type="submit" label="Save" icon="pi pi-check"></button>
+      </div> -->
+    </form>
+  </section>
 </section>

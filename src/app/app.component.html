@@ -1,10 +1,11 @@
-<app-header *ngIf="isMobile"></app-header>  
-<div appRefreshOnZoom class="shell" [style.gridTemplateColumns]="columns()">
-    <aside class="sidebar" *ngIf="!isMobile">
-        <app-side-bar (buttonToggeled)="toggle()" ></app-side-bar>
-    </aside>
+<app-header *ngIf="isMobile"></app-header>
 
-    <section class="content"  > 
-        <router-outlet /> 
-    </section>
+<div class="layout" [class.sidebar-collapsed]="isCollapsed">
+  <aside class="sidebar" *ngIf="!isMobile">
+    <app-side-bar (buttonToggeled)="toggle()"></app-side-bar>
+  </aside>
+
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
 </div>

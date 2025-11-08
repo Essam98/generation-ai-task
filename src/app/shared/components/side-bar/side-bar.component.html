@@ -1,7 +1,7 @@
  
 <aside class="app-sidebar" >
     <div class="logo">  
-        <img [width]="isLargeMode ? 200 : 100"  [height]="isLargeMode ? 100 : 100" [src]="'images/logo/' + (isLargeMode ? 'IdealSolutions-HorizontalLockup-EN-White.png' : 'IdealSolutions-VerticalLockup-EN-White.png')" alt="logo">
+        <img routerLink="/" [width]="isLargeMode ? 200 : 100"  [height]="isLargeMode ? 100 : 100" [src]="'images/logo/' + (isLargeMode ? 'IdealSolutions-HorizontalLockup-EN-White.png' : 'IdealSolutions-VerticalLockup-EN-White.png')" alt="logo">
     </div> 
     <div class="toggle-bar" (click)="toggleSidNavView()" >
         <i class="pi pi-bars"></i>

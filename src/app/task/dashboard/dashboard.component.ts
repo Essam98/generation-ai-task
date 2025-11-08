@@ -9,6 +9,8 @@ import { ShiftData } from '../../../../public/Data/ShiftData';
 import { SmallStats } from '../../../../public/interfaces/smallStates';
 import { Row } from '../../../../public/interfaces/row';
 import { RowData } from '../../../../public/Data/RowData';
+import { WideStats } from '../../../../public/interfaces/wideStats';
+import { WideStatsData } from '../../../../public/Data/WideStatsData';
 
 @Component({
     selector: 'app-dashboard',
@@ -21,23 +23,8 @@ export class DashboardComponent {
     ringStats: Array<RingStats> = new Array<RingStats>(...RingStatsData) 
     smallStats: Array<SmallStats> = new Array<SmallStats>(...SmallStatsData) 
     shifts: Array<Shift> = new Array<Shift>(...ShiftData) 
-    rows: Array<Row> = new Array<Row>(...RowData) 
- 
-
-
-
-    filteredShifts() { } 
-    onDownload() {  }
-    onUpload() {   }
-
-  
-
-
-    wideStats = [
-        { value: '43,303', unit: 'km', label: 'Total Distance Driven', backgroundColor: '#1F1D2B26' },
-        { value: '291 hr : 23 min', unit: '', label: 'Total Hours Driven', backgroundColor: '#1F1D2B26' }
-    ];
-
+    wideStats: Array<WideStats> = new Array<WideStats>(...WideStatsData) 
+    rows: Array<Row> = new Array<Row>(...RowData)
 
     isMobile = false;
     private destroy$ = new Subject<void>();
@@ -49,16 +36,9 @@ export class DashboardComponent {
                 takeUntil(this.destroy$)
             )
             .subscribe(isSmall => this.isMobile = isSmall);
-    }
-
+    } 
     ngOnDestroy() {
         this.destroy$.next();
         this.destroy$.complete();
-    }
-
-
-    statusOptions = [
-
-    ]; 
-
+    }  
 }

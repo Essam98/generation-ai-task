@@ -24,19 +24,18 @@ export class AppComponent implements OnDestroy {
                 takeUntil(this.destroy$)
             )
             .subscribe(isSmall => this.isMobile = isSmall);
-            AOS.init({ once: true})
+        AOS.init({ once: true })
     }
 
     ngOnDestroy() {
         this.destroy$.next();
         this.destroy$.complete();
+    } 
+
+    isCollapsed = false;    
+
+    toggle() {
+        this.isCollapsed = !this.isCollapsed;  
     }
-
-    collapsed = signal(false);
-
-    columns = computed(() => this.collapsed() ? '5% 95%' : '20% 80%');
-
-    toggle = () => this.collapsed.update(v => !v); 
-
 
 }

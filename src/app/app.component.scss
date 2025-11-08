@@ -1,28 +1,57 @@
-:host {
-    --bg: #10141A; 
-    --border: #1b2230;
-    --panel: #121820;
-    display: block;
-    background: var(--bg);
-}
-
-.topbar {
-    display: flex;
-    align-items: center;
-    padding: .5rem .75rem;
-    border-bottom: 1px solid var(--border);
-    background: var(--bg);
-}
-
-.shell {
-    display: flex;  
+/* Base: mobile-first */
+.layout {
+  overflow: hidden;         /* contains floats at large sizes */
+  box-sizing: border-box;
 }
 
 .sidebar {
-    background: var(--panel);
-    border-right: 1px solid var(--border); 
+  display: none;            /* hidden until ≥1025px */
 }
- 
-.content { 
-    flex: 1;
+
+.content {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---------------- Your breakpoints ---------------- */
+
+@media only screen and (max-width: 400px) {
+  .sidebar { display: none; }
+  .content { width: 100%; float: none; }
+}
+
+@media only screen and (min-width: 401px) and (max-width: 600px) {
+  .sidebar { display: none; }
+  .content { width: 100%; float: none; }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  .sidebar { display: none; }
+  .content { width: 100%; float: none; }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .sidebar { display: none; }
+  .content { width: 100%; float: none; }
+}
+
+/* ≥1025px: show sidebar; default 30/70 */
+@media only screen and (min-width: 1025px) {
+  .sidebar {
+    display: block;
+    width: 30%;
+    float: left;                /* put on left; swap with content if you prefer right */
+    box-sizing: border-box;
+    transition: width .2s ease; /* optional: smooth resize */
+  }
+  .content {
+    width: 70%;
+    float: right;
+    box-sizing: border-box;
+    transition: width .2s ease;
+  }
+
+  /* collapsed state: sidebar 10%, content 90% */
+  .layout.sidebar-collapsed .sidebar { width: 10%; }
+  .layout.sidebar-collapsed .content { width: 90%; }
 }
