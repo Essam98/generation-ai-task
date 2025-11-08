@@ -1,6 +1,16 @@
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, Subject, takeUntil } from 'rxjs';
+import { RingStats } from '../../../../public/interfaces/RingStats';
+import { RingStatsData } from '../../../../public/Data/RingStats';
+import { SmallStatsData } from '../../../../public/Data/SmallStatsData';
+import { Shift } from '../../../../public/interfaces/shifts';
+import { ShiftData } from '../../../../public/Data/ShiftData';
+import { SmallStats } from '../../../../public/interfaces/smallStates';
+import { WideStats } from '../../../../public/interfaces/wideStats';
+import { WideStatsData } from '../../../../public/Data/WideStatsData';
+import { Row } from '../../../../public/interfaces/row';
+import { RowData } from '../../../../public/Data/RowData';
 
 @Component({
     selector: 'app-dashboard',
@@ -10,40 +20,18 @@ import { map, Subject, takeUntil } from 'rxjs';
 })
 export class DashboardComponent {
 
+
+
+    ringStats: Array<RingStats> = new Array<RingStats>(...RingStatsData)
+    smallStats: Array<SmallStats> = new Array<SmallStats>(...SmallStatsData)
+    shifts: Array<Shift> = new Array<Shift>(...ShiftData)
+    wideStats: Array<WideStats> = new Array<WideStats>(...WideStatsData)
+    rows: Array<Row> = new Array<Row>(...RowData)
+
     searchTerm = '';
-
-    shifts = [
-        { name: 'Afternoon Shift', start: '12:00 PM', end: '08:00 PM' }, 
-    ];
-
-    filteredShifts() { } 
-    onDownload() {  }
-    onUpload() {   }
-
-    ringStats: any[] = [
-        { label: 'Active Trips', value: 300, sub: '302', ring: 99,  },
-        { label: 'Active Vehicles', value: 375, sub: '500', ring: 75 },
-        { label: 'Under Maintenance', value: 16, sub: '20', ring: 80 },
-    ];
-  
-
-    smallStats: any[] = [
-        { label: 'In-Active Trips', value: 2, backgroundColor: '#1F1D2B99' },
-        { label: 'Stopped Vehicles', value: 100, backgroundColor: '#1F1D2B99' },
-        { label: 'Queue Maintenance', value: 4, backgroundColor: '#1F1D2B99' },
-        { label: 'Total Departments', value: 7, backgroundColor: '#1F1D2B59' },
-        { label: 'Total Fleets', value: 60, backgroundColor: '#1F1D2B59' },
-        { label: 'Total Drivers', value: 300, backgroundColor: '#1F1D2B59' },
-    ]  
-
-    wideStats = [
-        { value: '43,303', unit: 'km', label: 'Total Distance Driven', backgroundColor: '#1F1D2B26' },
-        { value: '291 hr : 23 min', unit: '', label: 'Total Hours Driven', backgroundColor: '#1F1D2B26' }
-    ];
-
-
     isMobile = false;
     private destroy$ = new Subject<void>();
+
 
     constructor(private bp: BreakpointObserver) {
         this.bp.observe([Breakpoints.Handset, '(max-width: 991.98px)'])
@@ -65,61 +53,10 @@ export class DashboardComponent {
         { label: 'Inactive', value: 'Inactive' },
         { label: 'Maintenance', value: 'Maintenance' }
     ];
+ 
 
-    rows: any[] = [
-        {
-            type: 'SUV',
-            id: 'Bus-9265',
-            plate: '04321',
-            odometerKm: 55956,
-            gpsDate: '2024-11-03',
-            gpsTime: '13:05:50',
-            deviceVendor: 'Teltonika',
-            deviceCode: 'C 0 3 - 9 6 3 2 1',
-            simAllowance: '1.5GB',
-            fleet: 'Q22',
-            status: 'Active'
-        },
-        // duplicate a few rows to show the list
-        {
-            type: 'SUV',
-            id: 'Bus-9265',
-            plate: '04321',
-            odometerKm: 55956,
-            gpsDate: '2024-11-03',
-            gpsTime: '13:05:50',
-            deviceVendor: 'Teltonika',
-            deviceCode: 'C 0 3 - 9 6 3 2 1',
-            simAllowance: '1.5GB',
-            fleet: 'Q22',
-            status: 'Active'
-        },
-        {
-            type: 'SUV',
-            id: 'Bus-9265',
-            plate: '04321',
-            odometerKm: 55956,
-            gpsDate: '2024-11-03',
-            gpsTime: '13:05:50',
-            deviceVendor: 'Teltonika',
-            deviceCode: 'C 0 3 - 9 6 3 2 1',
-            simAllowance: '1.5GB',
-            fleet: 'Q22',
-            status: 'Active'
-        },
-        {
-            type: 'SUV',
-            id: 'Bus-9265',
-            plate: '04321',
-            odometerKm: 55956,
-            gpsDate: '2024-11-03',
-            gpsTime: '13:05:50',
-            deviceVendor: 'Teltonika',
-            deviceCode: 'C 0 3 - 9 6 3 2 1',
-            simAllowance: '1.5GB',
-            fleet: 'Q22',
-            status: 'Active'
-        }
-    ];
+    filteredShifts() { }
+    onDownload() { }
+    onUpload() { }
 
 }
