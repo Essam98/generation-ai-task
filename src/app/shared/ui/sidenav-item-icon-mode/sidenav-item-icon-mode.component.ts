@@ -76,4 +76,10 @@ export class SidenavItemIconModeComponent implements OnInit {
         return this.router.isActive(tree as any, exact ? optsExact : optsSubset);
     }
 
+    route = (route: any) => { 
+        setTimeout(() => {
+            this.router.navigate([route])
+        }, 0);
+    } 
+
 }

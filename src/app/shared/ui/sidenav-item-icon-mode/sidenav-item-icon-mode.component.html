@@ -29,10 +29,10 @@
                 @if (item.children.length) {
                 <div class="body">
                     @for (item of item.children; track $index) {
-                    <div class="body-items" [routerLink]="item.route"> 
+                    <div class="body-items" (click)="route(item.route)"> 
                         <span class="icon-box image-container">
                             <img [src]="item.icon" alt="">
-                        </span>
+                        </span> 
                         <span class="label"> {{ item.label }} </span>
                         @if (item.isShowAddButton) {
                         <button pButton type="button" class="plus-btn" icon="pi pi-plus" aria-label="Add"> </button>

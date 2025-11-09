@@ -1,7 +1,7 @@
 <!-- profile-form.component.html -->
-<section class="stage">
+<section class="stage" data-aos="zoom-in">
   <!-- Avatar -->
-  <img class="avatar" [src]="'images/user/avatar.png'" alt="Profile avatar" />
+  <img class="avatar" [src]="'images/user/avatar.png'" alt="Profile avatar" data-aos="fade-up" data-aos-delay="50"/>
 
   <!-- Update button -->
   <button
@@ -11,19 +11,21 @@
     icon="pi pi-camera"
     label="Update Image"
     (click)="fileInput.click()"
+    data-aos="fade-up"
+    data-aos-delay="100"
   ></button>
 
   <!-- Hidden file input -->
   <input #fileInput type="file" accept="image/*" (change)="onFileChange($event)" hidden />
 
-  <section class="page">
+  <section class="page" data-aos="fade-up" data-aos-delay="150">
     <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+
       <!-- row: names -->
-      <div class="grid-3">
-        <div class="field">
+      <div class="grid-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="field" data-aos="fade-up" data-aos-delay="0">
           <label>
-            First Name
-            <span class="req">*</span>
+            First Name <span class="req">*</span>
           </label>
           <input
             pInputText
@@ -36,7 +38,7 @@
           </small>
         </div>
 
-        <div class="field">
+        <div class="field" data-aos="fade-up" data-aos-delay="75">
           <label>Middle Name</label>
           <input pInputText formControlName="middle" placeholder="Jasim" />
           <small class="p-error" *ngIf="f['middle'].errors?.['maxlength'] && isInvalid('middle')">
@@ -44,10 +46,9 @@
           </small>
         </div>
 
-        <div class="field">
+        <div class="field" data-aos="fade-up" data-aos-delay="150">
           <label>
-            Last Name
-            <span class="req">*</span>
+            Last Name <span class="req">*</span>
           </label>
           <input
             pInputText
@@ -62,9 +63,8 @@
       </div>
 
       <!-- Email -->
-      <div class="field mt-4">
+      <div class="field mt-4" data-aos="fade-up" data-aos-delay="225">
         <label>Email <span class="req">*</span></label>
-
         <div class="email-wrap">
           <i class="pi pi-envelope me-3"></i>
           <input
@@ -85,9 +85,8 @@
       </div>
 
       <!-- Phone -->
-      <div class="field mt-4">
+      <div class="field mt-4" data-aos="fade-up" data-aos-delay="275">
         <label>Phone <span class="req">*</span></label>
-
         <div class="email-wrap">
           <i class="pi pi-phone me-3"></i>
           <input
@@ -108,10 +107,10 @@
       </div>
 
       <!-- RFID -->
-      <div class="field mt-4">
+      <div class="field mt-4" data-aos="fade-up" data-aos-delay="325">
         <label>
           <span class="top">RFID</span>
-          <p-inputSwitch  formControlName="rfidEnabled" styleClass="rfid-switch"></p-inputSwitch>
+          <p-inputSwitch formControlName="rfidEnabled" styleClass="rfid-switch"></p-inputSwitch>
         </label>
 
         <div class="email-wrap">
@@ -119,7 +118,7 @@
             pInputText
             formControlName="rfid"
             placeholder="Enter RFID"
-            class="rfid email-input" 
+            class="rfid email-input"
             [ngClass]="{ 'p-invalid': isInvalid('rfid') }"
           />
         </div>
@@ -132,7 +131,7 @@
       </div>
 
       <!-- Role -->
-      <div class="field mt-4">
+      <div class="field mt-4" data-aos="fade-up" data-aos-delay="375">
         <label>Role <span class="req">*</span></label>
         <p-dropdown
           [options]="roles"
@@ -147,7 +146,7 @@
       </div>
 
       <!-- Department -->
-      <div class="field mt-4">
+      <div class="field mt-4" data-aos="fade-up" data-aos-delay="425">
         <label>Department <span class="req">*</span></label>
         <p-dropdown
           [options]="departments"
@@ -160,11 +159,6 @@
         ></p-dropdown>
         <small class="p-error" *ngIf="isInvalid('department')">Department is required.</small>
       </div>
-
-      <!-- Actions -->
-      <!-- <div class="mt-5">
-        <button pButton type="submit" label="Save" icon="pi pi-check"></button>
-      </div> -->
     </form>
   </section>
 </section>
